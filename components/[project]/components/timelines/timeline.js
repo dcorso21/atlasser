@@ -19,6 +19,7 @@ export default function Timeline() {
             ref={mainRef}
             className={styles.timeline}
         >
+            <div className={styles.desc}> This is the description</div>
             {/* <svg width="100%" height="100%" ref={svgRef}></svg> */}
             {/* <pre>{JSON.stringify(periods, null, 4)}</pre> */}
         </div>

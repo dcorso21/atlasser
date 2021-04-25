@@ -2,18 +2,21 @@ import * as d3 from "d3";
 import styles from "../timeline.module.scss";
 
 class tlRenderer {
-    static height = 40;
+    static height = 100;
     static delay = 20;
     static duration = 300;
 
-    static handleShowDescription(e) {
-        console.log(e);
+    static handleShowDescription(e, d) {
         const bbox = e.target.getBoundingClientRect();
-        let desc = d3.select(`.${styles.desc}`).style("color", "blue");
-        // .style("top", bbox.top)
-        // .style("left", bbox.left)
+        let desc = d3
+            .select(`.${styles.desc}`)
+            .transition(tlRenderer.standardTrans)
+            .style("color", "blue")
+            .style("top", bbox.top + "px")
+            .style("left", bbox.left + "px")
+            .text(d.name);
 
-        console.log(desc);
+        console.log(d.name);
     }
 
     static standardTrans() {
@@ -179,11 +182,4 @@ export default function renderTimelines(ref, periods, setPeriods) {
                 tl.attr("transform", e.transform);
             })
         );
-
-    d3.selectAll(`.${styles.desc}`).exit().remove();
-
-    d3.select(ref)
-        .append("div")
-        .attr("class", styles.desc)
-        .text("This is the description of the period");
 }

@@ -19,17 +19,19 @@
         
 
         .title {
-            font-size: 7pt;
+            font-size: 10pt;
         }
     }
 
     .desc {
         position:absolute;
         background-color: white;
-        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.018);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.18);
         padding: 20px;
         border-radius: 10px;
         z-index: 10;
+        // top:50px;
+        // left:50px
     }
 }
 
