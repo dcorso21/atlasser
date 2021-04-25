@@ -1,0 +1,35 @@
+.timeline {
+    position: relative;
+    height: inherit;
+    width: inherit;
+    
+    .period {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position:absolute;
+        border: 1px solid rgba(255, 255, 255, 0.356);
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.144);
+        background-color: rgb(102, 175, 165);
+        color: white;
+        border-radius: 5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        
+
+        .title {
+            font-size: 7pt;
+        }
+    }
+
+    .desc {
+        position:absolute;
+        background-color: white;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.018);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 10;
+    }
+}
+
