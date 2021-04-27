@@ -3,6 +3,7 @@ import renderTimelines from "./modules/timeline-card";
 import { getPeriods } from "./funcs";
 import styles from "./timeline.module.scss"
 
+//changing this as a test.
 export default function Timeline() {
     const [periods, setPeriods] = useState(getPeriods());
     const mainRef = useRef();
