@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import styles from "../timeline.module.scss";
+import Period from "./period";
 
 class tlRenderer {
     static height = 100;
@@ -37,10 +38,8 @@ class tlRenderer {
                 .style("height", () => tlRenderer.height + "px")
                 .style("width", (d) => d.width)
                 .call((enter) => {
-                    let title = enter
-                        .append("span")
-                        .text((d) => d.name)
-                        .attr("class", styles.title);
+                    // Render elements inside period
+                    Period(enter, styles);
 
                     enter
                         .transition(tlRenderer.standardTrans())
