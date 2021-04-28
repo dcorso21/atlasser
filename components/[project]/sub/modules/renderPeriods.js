@@ -30,7 +30,7 @@ class tlRenderer {
             enter
                 .append("div")
                 .on("click", (_, d) => tlRenderer.handleClick(d.updateFunc, d))
-                // .on("mouseover", tlRenderer.handleShowDescription)
+                .on("mouseover", tlRenderer.handleShowDescription)
                 .attr("class", styles.period)
                 .style("opacity", 0)
                 .style("left", (d) => d.x)
