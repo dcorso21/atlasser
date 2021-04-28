@@ -1,7 +1,5 @@
 import styles from "./project.module.scss";
-import Timeline from "./components/timelines/timeline";
-import Entry from "./components/entry";
-import { useState } from "react";
+import Timeline from "./sub/timeline";
 
 let data = [
     {

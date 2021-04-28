@@ -25,30 +25,32 @@ class tlRenderer {
 
     static enterPeriods(enter) {
         let delayInd = -1;
-        return enter
-            .append("div")
-            .on("click", (_, d) => tlRenderer.handleClick(d.updateFunc, d))
-            .on("mouseover", tlRenderer.handleShowDescription)
-            .attr("class", styles.period)
-            .style("opacity", 0)
-            .style("left", (d) => d.x)
-            .style("top", (_, i) => tlRenderer.height * i + "px")
-            .style("height", () => tlRenderer.height + "px")
-            .style("width", (d) => d.width)
-            .call((enter) => {
-                let title = enter
-                    .append("span")
-                    .text((d) => d.name)
-                    .attr("class", styles.title);
+        return (
+            enter
+                .append("div")
+                .on("click", (_, d) => tlRenderer.handleClick(d.updateFunc, d))
+                // .on("mouseover", tlRenderer.handleShowDescription)
+                .attr("class", styles.period)
+                .style("opacity", 0)
+                .style("left", (d) => d.x)
+                .style("top", (_, i) => tlRenderer.height * i + "px")
+                .style("height", () => tlRenderer.height + "px")
+                .style("width", (d) => d.width)
+                .call((enter) => {
+                    let title = enter
+                        .append("span")
+                        .text((d) => d.name)
+                        .attr("class", styles.title);
 
-                enter
-                    .transition(tlRenderer.standardTrans())
-                    .delay(() => {
-                        delayInd++;
-                        return delayInd * tlRenderer.delay;
-                    })
-                    .style("opacity", 1);
-            });
+                    enter
+                        .transition(tlRenderer.standardTrans())
+                        // .delay(() => {
+                        //     delayInd++;
+                        //     return delayInd * tlRenderer.delay;
+                        // })
+                        .style("opacity", 1);
+                })
+        );
     }
 
     static updatePeriods(update) {
@@ -163,7 +165,7 @@ class tlUtils {
     }
 }
 
-export default function renderTimelines(ref, periods, setPeriods) {
+export default function renderPeriods(ref, periods, setPeriods) {
     let data = tlUtils.convertPeriodsToData(periods, setPeriods);
 
     let periodClass = "." + styles.period;
